@@ -3,12 +3,16 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/postlight/mercury-parser-api.svg)](https://greenkeeper.io/)
 
 This repo provides a drop-in replacement for the [Mercury Parser](https://github.com/postlight/mercury-parser) API. 
-In fact, this [AWS Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
+In fact, this [Aliyun Lambda](https://aws.amazon.com/lambda/)-based API for running the Mercury Parser is the same code 
 and serverless infrastructure that powered the Mercury Parser API.
 
 ## Installation
 
 ```bash
+
+# Install the aliyun function plugin
+serverless plugin install --name serverless-aliyun-function-compute
+
 # If you don't already have the mercury parser api installed, do that
 git clone https://github.com/postlight/mercury-parser-api.git
 
@@ -29,7 +33,7 @@ yarn serve
 Assuming you've already [set up your default AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration) (or have set a different AWS profile via [the profile field](serverless.yml#L21)), simply run:
 
 ```bash
-yarn deploy
+yarn deploy --region=cn-hangzhou
 ```
 
 `yarn deploy` will deploy to "dev" environment. You can deploy to `stage` or `prod`

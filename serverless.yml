@@ -14,15 +14,12 @@
 service: mercury
 
 provider:
-  name: aws
-  runtime: nodejs8.10
-  # If you want to change to a different AWS profile
-  # from ~/.aws/credentials, you can do so here
-  profile: default
-  # you can overwrite defaults here
-  #  stage: dev
-  #  region: us-east-1
+  name: aliyun
+  runtime: nodejs8
+  credentials: ~/.aliyun/credentials
+  region: cn-hangzhou
 
+ 
 custom:
   webpack:
     webpackConfig: ./webpack.config.js
@@ -61,3 +58,7 @@ functions:
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-aliyun-function-compute
+ 
+package:
+    artifact: ./serverless/mercury.zip
